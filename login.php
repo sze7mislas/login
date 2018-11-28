@@ -5,9 +5,9 @@
             $username=$_POST['uname'];
             $password=$_POST['pwd'];
             
-            $sql="SELECT * FROM user WHERE uname=$username
-                AND pwd=$password";
-            $res
+            $sql="SELECT * FROM user WHERE uname='$username'
+                AND pwd='$password'";
+            $res=$db->query($sql);
             }
             
         ?>
@@ -20,6 +20,11 @@
     </head>
     <body>
         <?php
+        if($res->num_rows==1){
+            echo "Sikeresen bejelentkeztél";
+        }
+        //echo "<pre>";
+        //print_r($res);
         // put your code here
         ?>
     </body>
